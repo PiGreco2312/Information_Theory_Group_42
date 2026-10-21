@@ -1,0 +1,724 @@
+    x1    x2    x3    class
+    __    __    __    _____
+
+    20    60    80      0  
+    80    20    60      1  
+    40    80    20      1  
+    80    80    40      0  
+    20    40    80      1  
+    60    60    40      1  
+    20    40    20      0  
+    20    60    20      0  
+    80    60    60      0  
+    80    60    20      0  
+    60    20    40      0  
+    80    80    20      0  
+    40    40    60      1  
+    20    80    60      0  
+    80    80    60      0  
+
+
+
+
+ -------------------- Working on a new node -------------------- 
+
+
+Entropy(y) = 0.9183; Elements in y: 15
+
+ ####### Calculating next feature ####### 
+
+Values in X:     20    80    40    80    20    60    20    20    80    80    60    80    40    20    80
+
+Possible thresholds:     30    50    70
+
+
+Calculating for threshold: 30
+Left:       20    20    20    20    20
+
+y(left):     0     1     0     0     0
+
+Right:       80    40    80    60    80    80    60    80    40    80
+
+y(right):     1     1     0     1     0     0     0     0     1     0
+
+pL = sum(left)/n ---> 0.33333 = 5 / 15
+pR = 1-pL        ---> 0.66667 = 1 - 0.33333
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.88794 = 0.33333*0.72193 + 0.66667*0.97095
+
+IG  = H - Hcond                   ---> 0.030353 = 0.9183 - 0.88794
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.9183 = - 0.33333*-1.585 - 0.66667*-0.58496
+IGR = IG / HS                     ---> 0.033053 = 0.030353 / 0.9183
+
+Calculating for threshold: 50
+Left:       20    40    20    20    20    40    20
+
+y(left):     0     1     1     0     0     1     0
+
+Right:       80    80    60    80    80    60    80    80
+
+y(right):     1     0     1     0     0     0     0     0
+
+pL = sum(left)/n ---> 0.46667 = 7 / 15
+pR = 1-pL        ---> 0.53333 = 1 - 0.46667
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.89245 = 0.46667*0.98523 + 0.53333*0.81128
+
+IG  = H - Hcond                   ---> 0.025841 = 0.9183 - 0.89245
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.99679 = - 0.46667*-1.0995 - 0.53333*-0.90689
+IGR = IG / HS                     ---> 0.025924 = 0.025841 / 0.99679
+
+Calculating for threshold: 70
+Left:       20    40    20    60    20    20    60    40    20
+
+y(left):     0     1     1     1     0     0     0     1     0
+
+Right:       80    80    80    80    80    80
+
+y(right):     1     0     0     0     0     0
+
+pL = sum(left)/n ---> 0.6 = 9 / 15
+pR = 1-pL        ---> 0.4 = 1 - 0.6
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.85465 = 0.6*0.99108 + 0.4*0.65002
+
+IG  = H - Hcond                   ---> 0.063641 = 0.9183 - 0.85465
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.6*-0.73697 - 0.4*-1.3219
+IGR = IG / HS                     ---> 0.065545 = 0.063641 / 0.97095
+
+ ####### Calculating next feature ####### 
+
+Values in X:     60    20    80    80    40    60    40    60    60    60    20    80    40    80    80
+
+Possible thresholds:     30    50    70
+
+
+Calculating for threshold: 30
+Left:       20    20
+
+y(left):     1     0
+
+Right:       60    80    80    40    60    40    60    60    60    80    40    80    80
+
+y(right):     0     1     0     1     1     0     0     0     0     0     1     0     0
+
+pL = sum(left)/n ---> 0.13333 = 2 / 15
+pR = 1-pL        ---> 0.86667 = 1 - 0.13333
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.90509 = 0.13333*1 + 0.86667*0.89049
+
+IG  = H - Hcond                   ---> 0.013203 = 0.9183 - 0.90509
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.56651 = - 0.13333*-2.9069 - 0.86667*-0.20645
+IGR = IG / HS                     ---> 0.023306 = 0.013203 / 0.56651
+
+Calculating for threshold: 50
+Left:       20    40    40    20    40
+
+y(left):     1     1     0     0     1
+
+Right:       60    80    80    60    60    60    60    80    80    80
+
+y(right):     0     1     0     1     0     0     0     0     0     0
+
+pL = sum(left)/n ---> 0.33333 = 5 / 15
+pR = 1-pL        ---> 0.66667 = 1 - 0.33333
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.80494 = 0.33333*0.97095 + 0.66667*0.72193
+
+IG  = H - Hcond                   ---> 0.11336 = 0.9183 - 0.80494
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.9183 = - 0.33333*-1.585 - 0.66667*-0.58496
+IGR = IG / HS                     ---> 0.12345 = 0.11336 / 0.9183
+
+Calculating for threshold: 70
+Left:       60    20    40    60    40    60    60    60    20    40
+
+y(left):     0     1     1     1     0     0     0     0     0     1
+
+Right:       80    80    80    80    80
+
+y(right):     1     0     0     0     0
+
+pL = sum(left)/n ---> 0.66667 = 10 / 15
+pR = 1-pL        ---> 0.33333 = 1 - 0.66667
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.88794 = 0.66667*0.97095 + 0.33333*0.72193
+
+IG  = H - Hcond                   ---> 0.030353 = 0.9183 - 0.88794
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.9183 = - 0.66667*-0.58496 - 0.33333*-1.585
+IGR = IG / HS                     ---> 0.033053 = 0.030353 / 0.9183
+
+ ####### Calculating next feature ####### 
+
+Values in X:     80    60    20    40    80    40    20    20    60    20    40    20    60    60    60
+
+Possible thresholds:     30    50    70
+
+
+Calculating for threshold: 30
+Left:       20    20    20    20    20
+
+y(left):     1     0     0     0     0
+
+Right:       80    60    40    80    40    60    40    60    60    60
+
+y(right):     0     1     0     1     1     0     0     1     0     0
+
+pL = sum(left)/n ---> 0.33333 = 5 / 15
+pR = 1-pL        ---> 0.66667 = 1 - 0.33333
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.88794 = 0.33333*0.72193 + 0.66667*0.97095
+
+IG  = H - Hcond                   ---> 0.030353 = 0.9183 - 0.88794
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.9183 = - 0.33333*-1.585 - 0.66667*-0.58496
+IGR = IG / HS                     ---> 0.033053 = 0.030353 / 0.9183
+
+Calculating for threshold: 50
+Left:       20    40    40    20    20    20    40    20
+
+y(left):     1     0     1     0     0     0     0     0
+
+Right:       80    60    80    60    60    60    60
+
+y(right):     0     1     1     0     1     0     0
+
+pL = sum(left)/n ---> 0.53333 = 8 / 15
+pR = 1-pL        ---> 0.46667 = 1 - 0.53333
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.89245 = 0.53333*0.81128 + 0.46667*0.98523
+
+IG  = H - Hcond                   ---> 0.025841 = 0.9183 - 0.89245
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.99679 = - 0.53333*-0.90689 - 0.46667*-1.0995
+IGR = IG / HS                     ---> 0.025924 = 0.025841 / 0.99679
+
+Calculating for threshold: 70
+Left:       60    20    40    40    20    20    60    20    40    20    60    60    60
+
+y(left):     1     1     0     1     0     0     0     0     0     0     1     0     0
+
+Right:       80    80
+
+y(right):     0     1
+
+pL = sum(left)/n ---> 0.86667 = 13 / 15
+pR = 1-pL        ---> 0.13333 = 1 - 0.86667
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.90509 = 0.86667*0.89049 + 0.13333*1
+
+IG  = H - Hcond                   ---> 0.013203 = 0.9183 - 0.90509
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.56651 = - 0.86667*-0.20645 - 0.13333*-2.9069
+IGR = IG / HS                     ---> 0.023306 = 0.013203 / 0.56651
+
+Tree level: 1 --- Feature: x2 --- Threshold: 50 --- IGR: 0.12345
+
+
+ -------------------- Working on a new node -------------------- 
+
+
+Entropy(y) = 0.97095; Elements in y: 5
+
+ ####### Calculating next feature ####### 
+
+Values in X:     80    20    20    60    40
+
+Possible thresholds:     30    50    70
+
+
+Calculating for threshold: 30
+Left:       20    20
+
+y(left):     1     0
+
+Right:       80    60    40
+
+y(right):     1     0     1
+
+pL = sum(left)/n ---> 0.4 = 2 / 5
+pR = 1-pL        ---> 0.6 = 1 - 0.4
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.95098 = 0.4*1 + 0.6*0.9183
+
+IG  = H - Hcond                   ---> 0.019973 = 0.97095 - 0.95098
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.4*-1.3219 - 0.6*-0.73697
+IGR = IG / HS                     ---> 0.020571 = 0.019973 / 0.97095
+
+Calculating for threshold: 50
+Left:       20    20    40
+
+y(left):     1     0     1
+
+Right:       80    60
+
+y(right):     1     0
+
+pL = sum(left)/n ---> 0.6 = 3 / 5
+pR = 1-pL        ---> 0.4 = 1 - 0.6
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.95098 = 0.6*0.9183 + 0.4*1
+
+IG  = H - Hcond                   ---> 0.019973 = 0.97095 - 0.95098
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.6*-0.73697 - 0.4*-1.3219
+IGR = IG / HS                     ---> 0.020571 = 0.019973 / 0.97095
+
+Calculating for threshold: 70
+Left:       20    20    60    40
+
+y(left):     1     0     0     1
+
+Right:       80
+
+y(right):     1
+
+pL = sum(left)/n ---> 0.8 = 4 / 5
+pR = 1-pL        ---> 0.2 = 1 - 0.8
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.8 = 0.8*1 + 0.2*0
+
+IG  = H - Hcond                   ---> 0.17095 = 0.97095 - 0.8
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.72193 = - 0.8*-0.32193 - 0.2*-2.3219
+IGR = IG / HS                     ---> 0.2368 = 0.17095 / 0.72193
+
+ ####### Calculating next feature ####### 
+
+Values in X:     20    40    40    20    40
+
+Possible thresholds:     30
+
+
+Calculating for threshold: 30
+Left:       20    20
+
+y(left):     1     0
+
+Right:       40    40    40
+
+y(right):     1     0     1
+
+pL = sum(left)/n ---> 0.4 = 2 / 5
+pR = 1-pL        ---> 0.6 = 1 - 0.4
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.95098 = 0.4*1 + 0.6*0.9183
+
+IG  = H - Hcond                   ---> 0.019973 = 0.97095 - 0.95098
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.4*-1.3219 - 0.6*-0.73697
+IGR = IG / HS                     ---> 0.020571 = 0.019973 / 0.97095
+
+ ####### Calculating next feature ####### 
+
+Values in X:     60    80    20    40    60
+
+Possible thresholds:     30    50    70
+
+
+Calculating for threshold: 30
+Left:       20
+
+y(left):     0
+
+Right:       60    80    40    60
+
+y(right):     1     1     0     1
+
+pL = sum(left)/n ---> 0.2 = 1 / 5
+pR = 1-pL        ---> 0.8 = 1 - 0.2
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.64902 = 0.2*0 + 0.8*0.81128
+
+IG  = H - Hcond                   ---> 0.32193 = 0.97095 - 0.64902
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.72193 = - 0.2*-2.3219 - 0.8*-0.32193
+IGR = IG / HS                     ---> 0.44593 = 0.32193 / 0.72193
+
+Calculating for threshold: 50
+Left:       20    40
+
+y(left):     0     0
+
+Right:       60    80    60
+
+y(right):     1     1     1
+
+pL = sum(left)/n ---> 0.4 = 2 / 5
+pR = 1-pL        ---> 0.6 = 1 - 0.4
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0 = 0.4*0 + 0.6*0
+
+IG  = H - Hcond                   ---> 0.97095 = 0.97095 - 0
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.4*-1.3219 - 0.6*-0.73697
+IGR = IG / HS                     ---> 1 = 0.97095 / 0.97095
+
+Calculating for threshold: 70
+Left:       60    20    40    60
+
+y(left):     1     0     0     1
+
+Right:       80
+
+y(right):     1
+
+pL = sum(left)/n ---> 0.8 = 4 / 5
+pR = 1-pL        ---> 0.2 = 1 - 0.8
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.8 = 0.8*1 + 0.2*0
+
+IG  = H - Hcond                   ---> 0.17095 = 0.97095 - 0.8
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.72193 = - 0.8*-0.32193 - 0.2*-2.3219
+IGR = IG / HS                     ---> 0.2368 = 0.17095 / 0.72193
+
+Tree level: 2 --- Feature: x3 --- Threshold: 50 --- IGR: 1
+
+
+ -------------------- Working on a new node -------------------- 
+
+
+Entropy(y) = 0.72193; Elements in y: 10
+
+ ####### Calculating next feature ####### 
+
+Values in X:     20    40    80    60    20    80    80    80    20    80
+
+Possible thresholds:     30    50    70
+
+
+Calculating for threshold: 30
+Left:       20    20    20
+
+y(left):     0     0     0
+
+Right:       40    80    60    80    80    80    80
+
+y(right):     1     0     1     0     0     0     0
+
+pL = sum(left)/n ---> 0.3 = 3 / 10
+pR = 1-pL        ---> 0.7 = 1 - 0.3
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.60418 = 0.3*0 + 0.7*0.86312
+
+IG  = H - Hcond                   ---> 0.11774 = 0.72193 - 0.60418
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.88129 = - 0.3*-1.737 - 0.7*-0.51457
+IGR = IG / HS                     ---> 0.1336 = 0.11774 / 0.88129
+
+Calculating for threshold: 50
+Left:       20    40    20    20
+
+y(left):     0     1     0     0
+
+Right:       80    60    80    80    80    80
+
+y(right):     0     1     0     0     0     0
+
+pL = sum(left)/n ---> 0.4 = 4 / 10
+pR = 1-pL        ---> 0.6 = 1 - 0.4
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.71452 = 0.4*0.81128 + 0.6*0.65002
+
+IG  = H - Hcond                   ---> 0.0074034 = 0.72193 - 0.71452
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.4*-1.3219 - 0.6*-0.73697
+IGR = IG / HS                     ---> 0.0076249 = 0.0074034 / 0.97095
+
+Calculating for threshold: 70
+Left:       20    40    60    20    20
+
+y(left):     0     1     1     0     0
+
+Right:       80    80    80    80    80
+
+y(right):     0     0     0     0     0
+
+pL = sum(left)/n ---> 0.5 = 5 / 10
+pR = 1-pL        ---> 0.5 = 1 - 0.5
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.48548 = 0.5*0.97095 + 0.5*0
+
+IG  = H - Hcond                   ---> 0.23645 = 0.72193 - 0.48548
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 1 = - 0.5*-1 - 0.5*-1
+IGR = IG / HS                     ---> 0.23645 = 0.23645 / 1
+
+ ####### Calculating next feature ####### 
+
+Values in X:     60    80    80    60    60    60    60    80    80    80
+
+Possible thresholds:     70
+
+
+Calculating for threshold: 70
+Left:       60    60    60    60    60
+
+y(left):     0     1     0     0     0
+
+Right:       80    80    80    80    80
+
+y(right):     1     0     0     0     0
+
+pL = sum(left)/n ---> 0.5 = 5 / 10
+pR = 1-pL        ---> 0.5 = 1 - 0.5
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.72193 = 0.5*0.72193 + 0.5*0.72193
+
+IG  = H - Hcond                   ---> 0 = 0.72193 - 0.72193
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 1 = - 0.5*-1 - 0.5*-1
+IGR = IG / HS                     ---> 0 = 0 / 1
+
+ ####### Calculating next feature ####### 
+
+Values in X:     80    20    40    40    20    60    20    20    60    60
+
+Possible thresholds:     30    50    70
+
+
+Calculating for threshold: 30
+Left:       20    20    20    20
+
+y(left):     1     0     0     0
+
+Right:       80    40    40    60    60    60
+
+y(right):     0     0     1     0     0     0
+
+pL = sum(left)/n ---> 0.4 = 4 / 10
+pR = 1-pL        ---> 0.6 = 1 - 0.4
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.71452 = 0.4*0.81128 + 0.6*0.65002
+
+IG  = H - Hcond                   ---> 0.0074034 = 0.72193 - 0.71452
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.4*-1.3219 - 0.6*-0.73697
+IGR = IG / HS                     ---> 0.0076249 = 0.0074034 / 0.97095
+
+Calculating for threshold: 50
+Left:       20    40    40    20    20    20
+
+y(left):     1     0     1     0     0     0
+
+Right:       80    60    60    60
+
+y(right):     0     0     0     0
+
+pL = sum(left)/n ---> 0.6 = 6 / 10
+pR = 1-pL        ---> 0.4 = 1 - 0.6
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.55098 = 0.6*0.9183 + 0.4*0
+
+IG  = H - Hcond                   ---> 0.17095 = 0.72193 - 0.55098
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.6*-0.73697 - 0.4*-1.3219
+IGR = IG / HS                     ---> 0.17607 = 0.17095 / 0.97095
+
+Calculating for threshold: 70
+Left:       20    40    40    20    60    20    20    60    60
+
+y(left):     1     0     1     0     0     0     0     0     0
+
+Right:       80
+
+y(right):     0
+
+pL = sum(left)/n ---> 0.9 = 9 / 10
+pR = 1-pL        ---> 0.1 = 1 - 0.9
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.68778 = 0.9*0.7642 + 0.1*0
+
+IG  = H - Hcond                   ---> 0.034144 = 0.72193 - 0.68778
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.469 = - 0.9*-0.152 - 0.1*-3.3219
+IGR = IG / HS                     ---> 0.072802 = 0.034144 / 0.469
+
+Tree level: 2 --- Feature: x1 --- Threshold: 70 --- IGR: 0.23645
+
+
+ -------------------- Working on a new node -------------------- 
+
+
+Entropy(y) = 0.97095; Elements in y: 5
+
+ ####### Calculating next feature ####### 
+
+Values in X:     20    40    60    20    20
+
+Possible thresholds:     30    50
+
+
+Calculating for threshold: 30
+Left:       20    20    20
+
+y(left):     0     0     0
+
+Right:       40    60
+
+y(right):     1     1
+
+pL = sum(left)/n ---> 0.6 = 3 / 5
+pR = 1-pL        ---> 0.4 = 1 - 0.6
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0 = 0.6*0 + 0.4*0
+
+IG  = H - Hcond                   ---> 0.97095 = 0.97095 - 0
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.6*-0.73697 - 0.4*-1.3219
+IGR = IG / HS                     ---> 1 = 0.97095 / 0.97095
+
+Calculating for threshold: 50
+Left:       20    40    20    20
+
+y(left):     0     1     0     0
+
+Right:       60
+
+y(right):     1
+
+pL = sum(left)/n ---> 0.8 = 4 / 5
+pR = 1-pL        ---> 0.2 = 1 - 0.8
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.64902 = 0.8*0.81128 + 0.2*0
+
+IG  = H - Hcond                   ---> 0.32193 = 0.97095 - 0.64902
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.72193 = - 0.8*-0.32193 - 0.2*-2.3219
+IGR = IG / HS                     ---> 0.44593 = 0.32193 / 0.72193
+
+ ####### Calculating next feature ####### 
+
+Values in X:     60    80    60    60    80
+
+Possible thresholds:     70
+
+
+Calculating for threshold: 70
+Left:       60    60    60
+
+y(left):     0     1     0
+
+Right:       80    80
+
+y(right):     1     0
+
+pL = sum(left)/n ---> 0.6 = 3 / 5
+pR = 1-pL        ---> 0.4 = 1 - 0.6
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.95098 = 0.6*0.9183 + 0.4*1
+
+IG  = H - Hcond                   ---> 0.019973 = 0.97095 - 0.95098
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.6*-0.73697 - 0.4*-1.3219
+IGR = IG / HS                     ---> 0.020571 = 0.019973 / 0.97095
+
+ ####### Calculating next feature ####### 
+
+Values in X:     80    20    40    20    60
+
+Possible thresholds:     30    50    70
+
+
+Calculating for threshold: 30
+Left:       20    20
+
+y(left):     1     0
+
+Right:       80    40    60
+
+y(right):     0     1     0
+
+pL = sum(left)/n ---> 0.4 = 2 / 5
+pR = 1-pL        ---> 0.6 = 1 - 0.4
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.95098 = 0.4*1 + 0.6*0.9183
+
+IG  = H - Hcond                   ---> 0.019973 = 0.97095 - 0.95098
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.4*-1.3219 - 0.6*-0.73697
+IGR = IG / HS                     ---> 0.020571 = 0.019973 / 0.97095
+
+Calculating for threshold: 50
+Left:       20    40    20
+
+y(left):     1     1     0
+
+Right:       80    60
+
+y(right):     0     0
+
+pL = sum(left)/n ---> 0.6 = 3 / 5
+pR = 1-pL        ---> 0.4 = 1 - 0.6
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.55098 = 0.6*0.9183 + 0.4*0
+
+IG  = H - Hcond                   ---> 0.41997 = 0.97095 - 0.55098
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.97095 = - 0.6*-0.73697 - 0.4*-1.3219
+IGR = IG / HS                     ---> 0.43254 = 0.41997 / 0.97095
+
+Calculating for threshold: 70
+Left:       20    40    20    60
+
+y(left):     1     1     0     0
+
+Right:       80
+
+y(right):     0
+
+pL = sum(left)/n ---> 0.8 = 4 / 5
+pR = 1-pL        ---> 0.2 = 1 - 0.8
+Hcond   = pL * entropyOf(y(left)) + pR * entropyOf(y(right))
+0.8 = 0.8*1 + 0.2*0
+
+IG  = H - Hcond                   ---> 0.17095 = 0.97095 - 0.8
+HS  = - pL*log2(pL) - pR*log2(pR) ---> 0.72193 = - 0.8*-0.32193 - 0.2*-2.3219
+IGR = IG / HS                     ---> 0.2368 = 0.17095 / 0.72193
+
+Tree level: 3 --- Feature: x1 --- Threshold: 30 --- IGR: 1Final tree: 
+If x2 < 50:
+    If x3 < 50:
+        -> class 0 
+    Else (x3 >= 50):
+        -> class 1 
+Else (x2 >= 50):
+    If x1 < 70:
+        If x1 < 30:
+            -> class 0 
+        Else (x1 >= 30):
+            -> class 1 
+    Else (x1 >= 70):
+        -> class 0 
+File DOT written in tree_full_en.dot
+
+Confusion Matrix (Training Data):
+                 Predicted: 0    Predicted: 1
+                 ____________    ____________
+
+    Actual: 0         10              0      
+    Actual: 1          0              5      
+
+
+False Alarm Probability: 0.0000
+Missed Detection Probability: 0.0000
+
+Test Data:
+    x1    x2    x3    class
+    __    __    __    _____
+
+    22    48    25      0  
+    33    70    40      0  
+    28    32    72      1  
+    65    35    42      0  
+    55    42    62      1  
+    45    65    25      1  
+    68    75    78      1  
+    75    55    35      0  
+    25    72    70      0  
+    60    68    30      1  
+
+
+yPredTest =
+
+     0
+     1
+     1
+     0
+     1
+     1
+     1
+     0
+     0
+     1
+
+
+Confusion Matrix (Test Data):
+                 Predicted: 0    Predicted: 1
+                 ____________    ____________
+
+    Actual: 0         4               1      
+    Actual: 1         0               5      
+
+
+False Alarm Probability: 0.0000
+Missed Detection Probability: 0.2000

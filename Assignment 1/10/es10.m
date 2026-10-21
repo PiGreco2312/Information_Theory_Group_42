@@ -41,10 +41,10 @@ disp(confTable);
 
 %% 6. False alarm prob and missed detection prob
 % Extract values from the confusion matrix
-TN = confMat(1, 1); % True Negatives (Actual 0, Predicted 0)
-FP = confMat(1, 2); % False Positives / False Alarms (Actual 0, Predicted 1)
-FN = confMat(2, 1); % False Negatives / Missed Detections (Actual 1, Predicted 0)
-TP = confMat(2, 2); % True Positives (Actual 1, Predicted 1)
+TN = confMat(2, 2); % True Negatives (Actual 1, Predicted 1)
+FP = confMat(2, 1); % False Positives / False Alarms (Actual 1, Predicted 0)
+FN = confMat(1, 2); % False Negatives / Missed Detections (Actual 0, Predicted 1)
+TP = confMat(1, 1); % True Positives (Actual 0, Predicted 0)
 
 % Calculate probabilities
 falseAlarmProb = FP / (FP + TN);
@@ -85,10 +85,10 @@ fprintf('\nConfusion Matrix (Test Data):\n');
 disp(confTableTest)
 
 % Extract values from the confusion matrix of the Test
-TN_test = confMatTest(1, 1); % True Negatives (Actual 0, Predicted 0)
-FP_test = confMatTest(1, 2); % False Positives / False Alarms (Actual 0, Predicted 1)
-FN_test = confMatTest(2, 1); % False Negatives / Missed Detections (Actual 1, Predicted 0)
-TP_test = confMatTest(2, 2); % True Positives (Actual 1, Predicted 1)
+TN_test = confMatTest(2, 2); % True Negatives (Actual 1, Predicted 1)
+FP_test = confMatTest(2, 1); % False Positives / False Alarms (Actual 1, Predicted 0)
+FN_test = confMatTest(1, 2); % False Negatives / Missed Detections (Actual 0, Predicted 1)
+TP_test = confMatTest(1, 1); % True Positives (Actual 0, Predicted 0)
 
 % Calculate probabilities
 falseAlarmProb_test         = FP_test / (FP_test + TN_test);
