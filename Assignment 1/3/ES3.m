@@ -93,7 +93,7 @@ end
 
 % Normalize joint frequency matrix to obtain probability distribution p(x_n, x_n+1)
 probPairMatrix=pairCountMatrix/(numChars-1);
-H2_original=shannon(probPairMatrix(:));
+H2_original=shannon(probPairMatrix(:));        % 6. Compute the single-symbol entropy H1
 
 fprintf('\nH2: %.4f bits/pair\n', H2_original);
 fprintf('H2/2: %.4f bits/char\n\n', H2_original / 2);
@@ -127,7 +127,7 @@ for i=1:27
     end
     probSingleShuffled(i)=charCount/numChars;
 end
-H1_shuffled=shannon(probSingleShuffled);
+H1_shuffled=shannon(probSingleShuffled);                % 7. Entropy calculations for the shuffled text.
 
 fprintf('\n=== SHUFFLED TEXT ANALYSIS ===\n');
 fprintf('H1_shuffled: %.4f bits/char (Delta H1: %.4f)\n', H1_shuffled, H1_shuffled-H1_original);
