@@ -5,6 +5,21 @@ X = randn(100, 1);
 nbins = 10;
 
 H = histogram(X, nbins);
+disp(H)
+binEdges = H.BinEdges;
+binCounts = H.BinCounts;
+numBins   = H.NumBins;
+
+mu = mean(X);
+sigma = std(X);
+
+fprintf("Number of bins = %d\n", numBins);
+fprintf("Sample mean    = %.6f\n", mu);
+fprintf("Sample std     = %.6f\n", sigma);
+
+title("Histogram of X ~ N(0,1) sample")
+xlabel("X")
+ylabel("Count")
 
 p = histcounts(X, nbins, "Normalization", "probability");
 p = p(p > 0);
