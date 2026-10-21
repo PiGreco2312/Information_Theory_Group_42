@@ -1,6 +1,7 @@
 clc
 clear
 
+rng(0)
 X = randn(100, 1);
 nbins = 10;
 
@@ -21,7 +22,7 @@ title("Histogram of X ~ N(0,1) sample")
 xlabel("X")
 ylabel("Count")
 
-p = histcounts(X, nbins, "Normalization", "probability");
+p = H.BinCounts / sum(H.BinCounts);
 p = p(p > 0);
 
 H_shannon = - (p(:)') * log2(p(:));
